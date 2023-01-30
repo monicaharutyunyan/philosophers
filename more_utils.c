@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   more_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:19:01 by mharutyu          #+#    #+#             */
-/*   Updated: 2023/01/30 15:32:18 by monicaharut      ###   ########.fr       */
+/*   Updated: 2023/01/30 16:55:37 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	is_died(t_data *info, char **argv)
 		{
 			if (argv[5] && check_arg_6(info) == -1)
 			{
-				print(info, 6);
+				print(info, 4);
 				return (-3);
 			}
 			if (check_died(&info[i]) == -1)
@@ -101,9 +101,10 @@ void	print(t_data *info, int i)
 		printf("%ld:\tPhilosopher %d\t is thinking 🤔\n", \
 				info->time, info->ind_struct);
 	else if (i == 4)
+	{
 		printf("%ld:\t all ate %d times\n", info->time,
 			info->nmb_of_each_philo_eat);
-	else if (i == 6)
-		printf("%ld\tPhilosopher ended", info->time);
+		return ;
+	}
 	pthread_mutex_unlock(info->print);
 }
