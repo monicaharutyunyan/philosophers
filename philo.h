@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:29:20 by mharutyu          #+#    #+#             */
-/*   Updated: 2023/01/28 17:32:41 by mharutyu         ###   ########.fr       */
+/*   Updated: 2023/01/29 01:30:27 by monicaharut      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <unistd.h>
+# include <string.h>
 
 typedef struct s_data
 {

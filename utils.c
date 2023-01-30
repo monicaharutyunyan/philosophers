@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 20:01:08 by mharutyu          #+#    #+#             */
-/*   Updated: 2023/01/28 17:17:44 by mharutyu         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:49:48 by monicaharut      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

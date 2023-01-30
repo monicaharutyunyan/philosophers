@@ -2,7 +2,7 @@ NAME 		= philo
 
 CC 			= cc
 
-CFLAGS 		= -Wall -Wextra  -fsanitize=address -g -ggdb3#-Werror #-fsanitize=address -g -ggdb3  #-Werror#TODO add flags
+CFLAGS 		= -Wall -Wextra  #-Werror #-fsanitize=address -g -ggdb3  #-Werror#TODO add flags
 
 SRCS		= $(wildcard *.c)
 
@@ -14,16 +14,16 @@ OBJS 		= $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ $(CC) $(OBJS) -fsanitize=address -g -ggdb3 -o $(NAME)
-	@echo -e "$(GREEN)✅$(NAME) created!$(DEFAULT) 😊🥑"
+	@ $(CC) $(OBJS) -o $(NAME)
+	@echo "$(GREEN)✅$(NAME) created!$(DEFAULT) 😊🥑"
 
 clean:
 	@rm -f ./*.o
-	@echo -e "$(YELLOW)🧨 Object files deleted!$(DEFAULT)"
+	@echo "$(YELLOW)🧨 Object files deleted!$(DEFAULT)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo -e "$(RED)💣 All deleted!$(DEFAULT)"
+	@echo "$(RED)💣 All deleted!$(DEFAULT)"
 
 re: fclean all
 

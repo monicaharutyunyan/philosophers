@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:31:56 by mharutyu          #+#    #+#             */
-/*   Updated: 2023/01/28 17:33:22 by mharutyu         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:34:02 by monicaharut      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 void	free_all(t_data *info)
 {
@@ -65,6 +64,7 @@ t_data	*fill_info(char **av)
 	int		i;
 
 	i = 0;
+	info = NULL;
 	info = malloc(sizeof(t_data) * ft_atoi(av[1]));
 	while (i < ft_atoi(av[1]))
 	{
@@ -72,11 +72,14 @@ t_data	*fill_info(char **av)
 		info[i].t_die = ft_atoi(av[2]);
 		info[i].t_eat = ft_atoi(av[3]);
 		info[i].t_sleep = ft_atoi(av[4]);
+		info[i].ind_struct = i + 1;
+		info[i].count_eat = 0;
+		info[i].died = 0;
 		if (av[5])
 			info[i].nmb_of_each_philo_eat = ft_atoi(av[5]);
 		else
-			info[i].nmb_of_each_philo_eat = 0;
-		++i;
+			info[i].nmb_of_each_philo_eat = -1;
+		i++;
 	}
 	return (info);
 }
@@ -85,7 +88,7 @@ int	check_info(t_data *data, char **av)
 {
 	if (data->t_die < 1 || data->t_eat < 1
 		|| data->t_sleep < 1 || data->nmb_of_philo < 1
-		|| (av[5] && data->nmb_of_each_philo_eat < 0))
+		|| (av[5] && data->nmb_of_each_philo_eat < 1))
 	{
 		printf("Error: Only positive numbers allowed!\n");
 		return (-1);
@@ -93,7 +96,7 @@ int	check_info(t_data *data, char **av)
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_data	*info;
 
@@ -102,14 +105,14 @@ int main(int ac, char **av)
 		if (check_args(av) == -1)
 			return (-1);
 		info = fill_info(av);
-		if (!check_info(info, av))
+		if (check_info(info, av) == -1)
 			return (-1);
-		if (!init_mutex(info))
+		if (init_mutex(info) == -1)
 		{
 			free_all(info);
 			return (-1);
 		}
-		if (!is_died(info,av))
+		if (is_died(info, av) == -1)
 		{
 			free_all(info);
 			return (-1);
